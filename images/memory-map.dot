@@ -1,0 +1,32 @@
+digraph {
+    rankdir=LR
+    compound=true
+    fontname="Inconsolata, Consolas"
+    fontsize=10
+    margin="0,0"
+    ranksep=0.5
+    penwidth=0.5
+    
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, style=filled, colorscheme=spectral7]
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+	memory[label="<b7>block7\ninternal peripherals\n0xE000 0000 - 0xFFFF FFFF\n|
+	              <b6>block6\nNot Used\n0xC000 0000 - 0xDFFF FFFF\n|
+				  <b5>block5\nFSMC Register\n0xA000 0000 - 0xBFFF FFFF\n|
+	              <b4>block4\nFSMC bank3&bank4\n0x8000 0000 - 0x9FFF FFFF\n|
+				  <b3>block3\nFSMC bank1&bank2\n0x6000 0000 - 0x7FFF FFFF\n|
+			      <b2>block2\nperipherals\n0x4000 0000 - 0x5FFF FFFF\n|
+				  <b1>block1\nSRAM\n0x2000 0000 - 0x3FFF FFFF\n|
+				  <b0>block0\ncode\n0x0000 0000 - 0x1FFF FFFF"]
+
+	pherials[label="<start>...\n|
+	                <adc1>ADC1\n0x4001 2400 - 0x4001 27FF\n|
+					...\n|
+					<uart1>UART1\n0x4001 3800 - 0x4001 38FF\n|
+					<end>...\n"]
+
+	memory:b2 -> pherials:start
+	memory:b2 -> pherials:end
+
+}
+

@@ -1,0 +1,27 @@
+digraph {
+    rankdir=LR
+    compound=true
+    fontname="Inconsolata, Consolas"
+    fontsize=10
+    margin="0,0"
+    ranksep=0.5
+    nodesep=0.2
+    penwidth=0.5
+    
+    node [shape=box, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, style=filled, colorscheme=spectral7]
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+ 	Sram[fillcolor=3]   
+    Perpherals [fillcolor=4]
+	Function [fillcolor=5]
+	BUS[fillcolor=6]
+	CPU[fillcolor=7]
+
+	Sram -> BUS[dir=both]
+	Perpherals -> BUS[dir=both]
+	Function -> BUS[dir=both]
+
+	BUS ->CPU[dir=both]
+
+}
+

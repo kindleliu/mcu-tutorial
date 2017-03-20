@@ -1,0 +1,21 @@
+digraph {
+    rankdir=LR
+    compound=true
+    fontname="Inconsolata, Consolas"
+    fontsize=10
+    margin="0,0"
+    ranksep=0.5
+    penwidth=0.5
+    
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, style=filled, colorscheme=spectral7]
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+	memory[label="<main>\nmain function\n|
+	              <function>\nother function\n|
+	              <uart>\nuart interrupt function\n|
+				  <adc>\nadc interrupt function\n"]
+
+
+
+}
+

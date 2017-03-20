@@ -1,0 +1,30 @@
+digraph {
+    rankdir=LR
+    compound=true
+    fontname="Inconsolata, Consolas"
+    fontsize=10
+    margin="0,0"
+    ranksep=0.5
+    penwidth=0.5
+    
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, style=filled, colorscheme=spectral7]
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+	memory[label="<msp>\n msp init value\n0x0000 0000\n|
+	              <vector>\ninterrupt vector table\n0x0000 0004 - ...\n|
+	              <user>\nuser function\n|
+	              <interrupt>\ninterrupt function\n"]
+
+	vector[label="<reset>\nReset Handler\n0x0000 0004\n|
+				  <nmi>\nNMI Handler\n0x0000 0008\n|
+				  <some>\n...\n0xXXXX XXXX\n|
+				  <nmi>\nUart Handler\n0xXXXX XXXX\n|
+				  <end>\n...\n"]
+	
+	memory:vector->vector:reset
+	memory:vector->vector:end
+
+
+
+}
+

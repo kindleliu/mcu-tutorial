@@ -1,0 +1,25 @@
+digraph {
+	rankdir=LR
+    compound=true
+    fontname="Inconsolata, Consolas"
+    fontsize=10
+    margin="0,0"
+    ranksep=0.5
+    penwidth=0.5
+    
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, style=filled, colorscheme=spectral7]
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+	memory[label="<sram>SRAM\n0x2000 0000 - 0x2000 BFFF\n|
+				  <system>\nSystem Memory\n\n0x1FF0 0000 - 0x1FF0 1FFF\n|
+				  <reserved1>\nReserved\n\n0x0802 0000 - 0x0FFF FFFF\n|
+				  <flash>\nFlash Memory\n\n0x0800 0000 - 0x0805 FFFF\n|
+				  <reserved2>\nReserved\n\n0x0002 0000 - 0x07FFF FFFF\n|
+				  <bootspace>\nBoot Space\n\n0x0000 0000 - 0x0005 FFFF\n"]
+	bootspace[shape=box label="\nBoot Space\n\n0x0000 0000 - 0x0005 FFFF"]
+	bootspace -> memory:sram[style=dotted,label="boot from sram"]
+	bootspace -> memory:system[style=dotted,label="boot from system memory"]
+	bootspace -> memory:flash[style=dotted,label="boot from flash"]
+	bootspace -> memory:bootspace[label="I'm here"]
+}
+

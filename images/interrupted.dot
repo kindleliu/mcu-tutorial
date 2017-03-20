@@ -1,0 +1,31 @@
+digraph {
+    rankdir=LR
+    compound=true
+    fontname="Inconsolata, Consolas"
+    fontsize=10
+    margin="0,0"
+    ranksep=0.5
+    penwidth=0.5
+    
+    node [shape=box, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, style=filled, colorscheme=spectral7]
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+	main1[fillcolor=5]
+	main2[fillcolor=5]
+	interrupt_pos[fillcolor=6,label=" ",shape=ellipse]	
+	interrupt_source[style=invis]		
+
+	{rank=same;main1,interrupt_pos,main2}
+	main1->interrupt_pos
+	interrupt_pos->main2
+	interrupt_source->interrupt_pos[label="interrupted"]
+
+
+	interrupt_code[fillcolor=3,shape=record,label="<start>entry address\n|
+													\n\n\ninterrupt code\n\n\n|
+													<end>return"]
+	
+	interrupt_pos->interrupt_code:start
+	interrupt_code:end->interrupt_pos
+}
+

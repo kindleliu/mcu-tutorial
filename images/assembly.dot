@@ -1,0 +1,23 @@
+digraph {
+    rankdir=LR
+    compound=true
+    fontname="Inconsolata, Consolas"
+    fontsize=10
+    margin="0,0"
+    ranksep=0.5
+    penwidth=0.5
+    
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, style=filled, colorscheme=spectral7]
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+	assembly[label="<code_a>CODE A\njmp to B\n|
+	              <tmp_x>Variable x\njmp to C\n|
+	              <code_b>CODE B\njmp to C\n|
+	              <tmp_y>Variable y\njmp to C\n|
+	              <code_c>CODE C\njmp to A\n"]
+
+	assembly:code_a -> assembly:code_b
+	assembly:code_b -> assembly:code_c
+	assembly:code_c:e -> assembly:code_a:e
+}
+

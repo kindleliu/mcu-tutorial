@@ -1,0 +1,31 @@
+digraph {
+    rankdir=LR
+    compound=true
+    fontname="Inconsolata, Consolas"
+    fontsize=10
+    margin="0,0"
+    ranksep=0.5
+    penwidth=0.5
+    
+    node [shape=record, fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5, style=filled, colorscheme=spectral7]
+    edge [fontname="Inconsolata, Consolas", fontsize=10, penwidth=0.5]
+
+	memory[label="...\n|stack start\n|x=1\n|y=2\n|<z>z=3\n|a=10\n|b=11\n|<c>c=12\n|...\n|stack end\n|...\n|bss\n|
+	       text start\n|
+		   int main()\n|
+		   <code_main>int x=1,y=2,z=3\n|
+		   <sum>sum()\n|
+		   <ret>return 0\n|
+		   ...\n|
+		   <sum_start>int sum()\n|
+		   <code_sum>int a=10,b=11,c=12\n|
+		   ...\n| 
+		   text end"]
+
+    node[shape=box,style=invis]
+   
+    sp->memory:z[label="sp"]
+	pc->memory:ret[label="pc"] 
+	memory:sum -> memory:sum_start:nw
+}
+
